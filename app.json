@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "fast-bitcoins",
+    "slug": "fast-bitcoins",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
