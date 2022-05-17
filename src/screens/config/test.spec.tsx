@@ -1,5 +1,5 @@
 import ConfigScreen from '.';
-import { renderWithNavigator } from '../../../utils/test';
+import { renderWithNavigator } from '../../utils/test';
 
 describe('<ConfigScreen />', () => {
   it('should match snapshot', () => {
