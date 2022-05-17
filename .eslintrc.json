@@ -1,13 +1,15 @@
 {
   "env": {
     "es6": true,
-    "commonjs": true
+    "commonjs": true,
+    "jest": true
   },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
+    "plugin:jest/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -18,7 +20,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier", "jest"],
   "rules": {
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",

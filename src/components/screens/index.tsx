@@ -7,6 +7,9 @@ export type RouteStackParamList = {
   ActivateTransitCardScreen: undefined;
 };
 
+export type RouteName = keyof RouteStackParamList;
+export type RouteParams = RouteStackParamList[RouteName];
+
 const { Navigator, Screen } = createNativeStackNavigator();
 
 const Screens: React.FC = () => (

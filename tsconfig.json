@@ -2,5 +2,7 @@
   "compilerOptions": {},
   "extends": "expo/tsconfig.base",
   "include": ["src/**/*"],
-  "files": ["src/@types/styled.d.ts"]
+  "types": ["jest"],
+  "files": ["src/@types/styled.d.ts"],
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }
