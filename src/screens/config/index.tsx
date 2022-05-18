@@ -6,6 +6,7 @@ import * as S from './styles';
 const ConfigScreen: React.FC = () => (
   <S.Content>
     <Text>{translate('ConfigScreen_Welcome')}</Text>
+    <S.ArrowDownIcon />
   </S.Content>
 );
 
