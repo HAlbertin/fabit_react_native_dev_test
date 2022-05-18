@@ -1,6 +1,6 @@
 import React from 'react';
-import Screens from './src/components/screens';
 import ContextsProvider from './src/providers';
+import Screens from './src/screens';
 
 const App = () => (
   <ContextsProvider>
