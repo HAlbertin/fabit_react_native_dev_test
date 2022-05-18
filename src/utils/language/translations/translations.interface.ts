@@ -1,5 +1,5 @@
 export interface ITranslations {
-  ConfigScreen_Welcome: string;
+  LanguageScreen_SelectLanguage: string;
 }
 
 export type TranslationKeys = keyof ITranslations;

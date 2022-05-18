@@ -1,7 +1,7 @@
 import { ITranslations } from './translations.interface';
 
 const fr: ITranslations = {
-  ConfigScreen_Welcome: 'Welcome fr',
+  LanguageScreen_SelectLanguage: 'Select your Language (fr)',
 };
 
 export default fr;

@@ -8,7 +8,7 @@ import it from './translations/it';
 import pt from './translations/pt';
 import { TranslationKeys } from './translations/translations.interface';
 
-const LANGUAGES = [
+export const LANGUAGES = [
   { lang: 'pt', file: pt },
   { lang: 'en', file: en },
   { lang: 'es', file: es },
