@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BottomSheetSelection /> should match snapshot 1`] = `
+<View
+  collapsable={false}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    safeArea={0}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderTopLeftRadius": 16,
+          "borderTopRightRadius": 16,
+          "elevation": 2,
+          "height": 1314,
+          "position": "absolute",
+          "shadowOpacity": 0.2,
+          "width": "100%",
+        },
+        Object {
+          "bottom": -1334,
+        },
+      ]
+    }
+    testID="bottomsheet-animated-container"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#F7F8F7",
+            "borderRadius": 100,
+            "height": 6,
+            "marginBottom": 10,
+            "marginLeft": "auto",
+            "marginRight": "auto",
+            "marginTop": 10,
+            "width": 82,
+          },
+        ]
+      }
+      testID="bottomsheet-animated-header"
+    />
+    <RCTScrollView
+      data={
+        Array [
+          Object {
+            "key": "1",
+            "value": "teste",
+          },
+        ]
+      }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      testID="list-select-flatlist"
+      viewabilityConfigCallbackPairs={Array []}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View>
+            <View
+              accessibilityState={
+                Object {
+                  "disabled": false,
+                }
+              }
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  false,
+                  Array [
+                    Object {
+                      "padding": 8,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              testID="list-item-1"
+            >
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "marginVertical": 6,
+                        "paddingLeft": 8,
+                      },
+                      Object {
+                        "flex": 1,
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    numberOfLines={1}
+                    selectable={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#0000",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "fontWeight": "400",
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Array [
+                          Object {
+                            "fontSize": 16,
+                          },
+                          Object {
+                            "color": "rgba(0, 0, 0, 0.87)",
+                          },
+                          undefined,
+                        ],
+                      ]
+                    }
+                  >
+                    teste
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0, 0, 0, 0.12)",
+                    "height": 0.5,
+                  },
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;

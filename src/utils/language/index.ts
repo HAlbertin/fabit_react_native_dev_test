@@ -8,26 +8,36 @@ import it from './translations/it';
 import pt from './translations/pt';
 import { TranslationKeys } from './translations/translations.interface';
 
-export const LANGUAGES = [
-  { lang: 'pt', file: pt },
-  { lang: 'en', file: en },
-  { lang: 'es', file: es },
-  { lang: 'it', file: it },
-  { lang: 'de', file: de },
-  { lang: 'fr', file: fr },
-];
-
-// Set the key-value pairs for the different languages you want to support.
-i18n.translations = LANGUAGES.reduce((translations, { lang, file }) => {
-  translations[lang] = file;
-  return translations;
-}, {});
-
-// Set the locale once at the beginning of your app.
-i18n.locale = Localization.locale;
+export const getCurrentLocale = () => Localization.locale;
 
 export const changeLanguage = (newLocale: string) => {
   i18n.locale = newLocale;
 };
 
 export const translate = (key: TranslationKeys): string => i18n.t(key);
+
+export const LANGUAGES = [
+  { lang: 'pt', file: pt, name: 'Language_Pt' },
+  { lang: 'en', file: en, name: 'Language_En' },
+  { lang: 'es', file: es, name: 'Language_Es' },
+  { lang: 'it', file: it, name: 'Language_It' },
+  { lang: 'de', file: de, name: 'Language_De' },
+  { lang: 'fr', file: fr, name: 'Language_Fr' },
+];
+
+export const DEFAULT_LANGUAGE = 'en';
+
+const setupInitialLanguage = () => {
+  i18n.fallbacks = true;
+
+  // Set the key-value pairs for the different languages you want to support.
+  i18n.translations = LANGUAGES.reduce((translations, { lang, file }) => {
+    translations[lang] = file;
+    return translations;
+  }, {});
+
+  // Set the locale once at the beginning of your app.
+  i18n.locale = getCurrentLocale();
+};
+
+setupInitialLanguage();

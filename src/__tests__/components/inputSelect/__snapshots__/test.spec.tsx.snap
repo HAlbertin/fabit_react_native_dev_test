@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InputSelect /> should match snapshot 1`] = `
+<View
+  collapsable={false}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+        "width": "100%",
+      }
+    }
+    testID="input-select-container"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderColor": "#CCCCCC",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "height": 58,
+            "paddingBottom": 16,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 16,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "width": "95%",
+            },
+          ]
+        }
+      >
+        <Text
+          color="#CCCCCC"
+          style={
+            Array [
+              Object {
+                "color": "#CCCCCC",
+                "fontSize": 16,
+              },
+            ]
+          }
+        >
+          inputMock
+        </Text>
+      </View>
+      <
+        height={16}
+        style={
+          Array [
+            Object {},
+          ]
+        }
+        width={10}
+      />
+    </View>
+  </View>
+</View>
+`;

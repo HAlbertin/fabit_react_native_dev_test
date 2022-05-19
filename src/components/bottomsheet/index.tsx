@@ -1,16 +1,19 @@
 import React, { memo, useEffect } from 'react';
 import { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import DimensionUtils from '../../utils/dimensions';
 import * as S from './styles';
 
-export interface BottomSheetDialogProps {
-  visible?: boolean;
+type Props = {
+  visible: boolean;
   onDismiss?: () => void;
   children?: React.ReactNode;
-}
+};
 
-const BottomSheetDialog: React.FC<BottomSheetDialogProps> = ({ visible, onDismiss, children }) => {
+const BottomSheet: React.FC<Props> = ({ visible, onDismiss, children }) => {
   const BOTTOMSHEET_ANIMATION_DURATION = 500;
+  const { top } = useSafeAreaInsets();
+
   const bottom = useSharedValue(-DimensionUtils.deviceHeight);
 
   const bottomSheetAnimatedStyle = useAnimatedStyle(() => ({
@@ -22,11 +25,11 @@ const BottomSheetDialog: React.FC<BottomSheetDialogProps> = ({ visible, onDismis
   }, [bottom, visible]);
 
   return (
-    <S.AnimatedContainer style={bottomSheetAnimatedStyle} testID="bottomsheet-drag-dismiss">
-      <S.Header onTouchEnd={onDismiss} />
-      {children}
+    <S.AnimatedContainer testID="bottomsheet-animated-container" safeArea={top} style={bottomSheetAnimatedStyle}>
+      <S.Header testID="bottomsheet-animated-header" onTouchEnd={onDismiss} />
+      {visible && children}
     </S.AnimatedContainer>
   );
 };
 
-export default memo(BottomSheetDialog, (p, n) => p.visible === n.visible);
+export default memo(BottomSheet, (p, n) => p.visible === n.visible);
