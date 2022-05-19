@@ -13,6 +13,13 @@ export interface ITranslations {
    */
   LanguageScreen_SelectLanguage: string;
   LanguageScreen_ContinueButton: string;
+  /**
+   * LoginScreen
+   */
+  LoginScreen_HeaderTitle: string;
+  LoginScreen_Email: string;
+  LoginScreen_EmailPlaceholder: string;
+  LoginScreen_ContinueButton: string;
 }
 
 export type TranslationKeys = keyof ITranslations;

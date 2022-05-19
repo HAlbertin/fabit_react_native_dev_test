@@ -31,6 +31,7 @@
     "jest-expo": "^45.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-fast-compare": "^3.2.0",
     "react-native": "0.68.2",
     "react-native-mmkv": "^2.4.1",
     "react-native-paper": "^4.12.1",

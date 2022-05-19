@@ -16,6 +16,14 @@ const it: ITranslations = {
    */
   LanguageScreen_SelectLanguage: 'Select your Language (it)',
   LanguageScreen_ContinueButton: 'Continue (it)',
+
+  /**
+   * LoginScreen
+   */
+  LoginScreen_HeaderTitle: 'Enter you email address (it)',
+  LoginScreen_Email: 'Email (it)',
+  LoginScreen_EmailPlaceholder: 'Your email address (it)',
+  LoginScreen_ContinueButton: 'Continue (it)',
 };
 
 export default it;

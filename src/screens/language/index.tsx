@@ -1,14 +1,18 @@
-import React, { useMemo, useState } from 'react';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React, { useCallback, useMemo, useState } from 'react';
+import { RouteStackParamList } from '..';
 import BottomSheetSelection from '../../components/bottomSheetSelection';
 import { PrimaryButtonContained } from '../../components/buttons/styles';
-import { H1 } from '../../components/fonts/styles';
+import H1 from '../../components/fonts/h1';
+import Typography from '../../components/fonts/typography';
 import InputSelect from '../../components/inputSelect';
 import { LANGUAGES_LIST } from '../../constants/language.constants';
-import { DEFAULT_LANGUAGE, translate } from '../../utils/language';
+import { theme } from '../../theme';
+import { changeLanguage, DEFAULT_LANGUAGE } from '../../utils/language';
 import StorageUtils from '../../utils/storage';
 import * as S from './styles';
 
-const LanguageScreen: React.FC = () => {
+const LanguageScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'LanguageScreen'>> = ({ navigation }) => {
   const [showBottomSheet, setShowBottomSheet] = useState(false);
   const [selectedLang, setSelectedLang] = useState(DEFAULT_LANGUAGE);
 
@@ -20,26 +24,25 @@ const LanguageScreen: React.FC = () => {
   const showList = () => setShowBottomSheet(true);
   const selectedLangName = useMemo(() => LANGUAGES_LIST.find(l => l.key === selectedLang).value, [selectedLang]);
 
-  const onContinue = () => {
+  const onContinue = useCallback(() => {
     StorageUtils.setItem('USER_LANGUAGE', selectedLang);
-    /**
-     * TODO: send to the next screen
-     */
-  };
+    changeLanguage(selectedLang);
+    navigation.navigate('LoginScreen');
+  }, [navigation, selectedLang]);
 
   return (
     <S.Container>
       <S.Content>
         <S.Circle />
         <S.TextContainer>
-          <H1>{translate('LanguageScreen_SelectLanguage')}</H1>
+          <H1 text="LanguageScreen_SelectLanguage" />
         </S.TextContainer>
         <InputSelect onClick={showList} text={selectedLangName} />
       </S.Content>
 
       <S.ButtonContent>
         <PrimaryButtonContained testID="continue-button" onPress={onContinue}>
-          {translate('LanguageScreen_ContinueButton')}
+          <Typography color={theme.colors.secondary} needsTranslate text="LanguageScreen_ContinueButton" />
         </PrimaryButtonContained>
       </S.ButtonContent>
 

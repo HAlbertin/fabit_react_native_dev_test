@@ -1,6 +1,6 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { theme } from '../../theme';
-import { Typography } from '../fonts/styles';
+import Typography from '../fonts/typography';
 import * as S from './styles';
 
 type Props = {
@@ -11,10 +11,10 @@ type Props = {
 
 const InputSelect: React.FC<Props> = ({ onClick, text, arrowRight }) => {
   return (
-    <S.Container testID="input-select-container" onPress={onClick}>
+    <S.Container testID="input-select-container" onPressIn={onClick}>
       <S.TextInputSelect>
         <S.TextContainer>
-          <Typography color={theme.colors.absolutes.gray}>{text}</Typography>
+          <Typography text={text} color={theme.colors.absolutes.gray} />
         </S.TextContainer>
 
         {arrowRight ? <S.ArrowRightIcon /> : <S.ArrowDownIcon />}
