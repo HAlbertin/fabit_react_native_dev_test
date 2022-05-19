@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
-import Bottomsheet from '../bottomSheet';
+import BottomSheet from '../bottomSheet';
+
 import ListSelect, { IListData } from '../listSelect';
 
 type Props = {
@@ -14,9 +15,9 @@ const BottomSheetSelection: React.FC<Props> = ({ show, onPress, itemList }) => {
   };
 
   return (
-    <Bottomsheet visible={show}>
+    <BottomSheet visible={show}>
       <ListSelect listItems={itemList} onPress={closeBottomSheet} />
-    </Bottomsheet>
+    </BottomSheet>
   );
 };
 
