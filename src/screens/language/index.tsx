@@ -34,7 +34,7 @@ const LanguageScreen: React.FC = () => {
         <S.TextContainer>
           <H1>{translate('LanguageScreen_SelectLanguage')}</H1>
         </S.TextContainer>
-        <InputSelect arrowRight onClick={showList} text={selectedLangName} />
+        <InputSelect onClick={showList} text={selectedLangName} />
       </S.Content>
 
       <S.ButtonContent>
