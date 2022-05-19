@@ -1,10 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import ConfigScreen from './config';
+import LanguageScreen from './language';
 
 export type RouteStackParamList = {
-  ActivateTransitCardScreen: undefined;
+  LanguageScreen: undefined;
 };
 
 export type RouteName = keyof RouteStackParamList;
@@ -20,15 +20,9 @@ const Screens: React.FC = () => (
         headerTitleAlign: 'center',
         animation: 'slide_from_right',
       }}
-      initialRouteName="HomeDrawerScreen"
+      initialRouteName="LanguageScreen"
     >
-      <Screen
-        name="ConfigScreen"
-        component={ConfigScreen}
-        options={{
-          title: 'ConfigScreen Title',
-        }}
-      />
+      <Screen name="LanguageScreen" component={LanguageScreen} options={{ headerShown: false }} />
     </Navigator>
   </NavigationContainer>
 );

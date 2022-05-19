@@ -5,8 +5,8 @@ import React from 'react';
 import ContextsProvider from '../../providers';
 import { RouteParams } from '../../screens';
 
-const Stack = createNativeStackNavigator();
 const MockedNavigator = ({ component, params = {} }) => {
+  const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -18,4 +18,8 @@ const MockedNavigator = ({ component, params = {} }) => {
 
 export const renderWithNavigator = (component: React.FC, params?: RouteParams) => {
   return render(<MockedNavigator component={component} params={params} />, { wrapper: ContextsProvider });
+};
+
+export const renderWithProviders = (component: React.ReactElement) => {
+  return render(component, { wrapper: ContextsProvider });
 };

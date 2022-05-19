@@ -1,7 +1,21 @@
 import { ITranslations } from './translations.interface';
 
 const de: ITranslations = {
-  ConfigScreen_Welcome: 'Welcome de',
+  /**
+   * Languages
+   */
+  Language_Pt: 'Portuguese (de)',
+  Language_De: 'German (de)',
+  Language_En: 'English (de)',
+  Language_Es: 'Spanish (de)',
+  Language_It: 'Italian (de)',
+  Language_Fr: 'French (de)',
+
+  /**
+   * LanguageScreen
+   */
+  LanguageScreen_SelectLanguage: 'Select your Language (de)',
+  LanguageScreen_ContinueButton: 'Continue (de)',
 };
 
 export default de;

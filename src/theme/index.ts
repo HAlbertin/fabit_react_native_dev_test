@@ -27,19 +27,20 @@ export const theme = {
   colors: {
     primary: '#FFB81C',
     secondary: '#101820',
-    background: '#0000',
+    background: '#F7F8F7',
     surface: '#0000',
     accent: '#0000',
     error: '#E02020',
     text: '#0000',
     onSurface: '#0000',
-    disabled: '#0000',
+    disabled: '#999999',
     placeholder: '#707070',
     backdrop: '#CCCCCC',
-    notification: '#0000',
+    notification: '#E7E8E9',
     absolutes: {
       black: '#000000',
       white: '#FFFFFF',
+      gray: '#CCCCCC',
     },
   },
 };
