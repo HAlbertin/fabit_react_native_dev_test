@@ -2,7 +2,7 @@ import Animated from 'react-native-reanimated';
 import styled from 'styled-components/native';
 import DimensionUtils from '../../utils/dimensions';
 
-const SAFE_AREA = 20;
+const SAFE_AREA = 50;
 
 export const AnimatedContainer = styled(Animated.View)<{ safeArea: number }>`
   position: absolute;

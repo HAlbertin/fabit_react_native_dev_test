@@ -26,13 +26,33 @@ const pt: ITranslations = {
   LoginScreen_ContinueButton: 'Continuar',
   LoginScreen_EmailInvalid: 'E-mail inválido',
   LoginScreen_EmailRequired: 'E-mail é obrigatório',
-  LoginScreen_ErrorMessage_InvalidRequest: 'Something went wrong',
-  LoginScreen_ErrorMessage_Unknow: 'Something went wrong',
-  LoginScreen_ErrorMessage_EmailRequired: 'Email Required',
-  LoginScreen_ErrorMessage_InvalidEmail: 'Invalid Email',
-  LoginScreen_ErrorMessage_AccountSuspended: 'Account Suspended',
-  LoginScreen_ErrorMessage_AccountClosed: 'Account Closed',
-  LoginScreen_ErrorMessage_AccountLocked: 'Account locked',
+  LoginScreen_ErrorMessage_InvalidRequest: 'Algo deu errado!',
+  LoginScreen_ErrorMessage_Unknow: 'Algo deu errado!',
+  LoginScreen_ErrorMessage_EmailRequired: 'E-mail é obrigatório',
+  LoginScreen_ErrorMessage_InvalidEmail: 'E-mail inválido',
+  LoginScreen_ErrorMessage_AccountSuspended: 'Conta suspensa',
+  LoginScreen_ErrorMessage_AccountClosed: 'Conta encerrada',
+  LoginScreen_ErrorMessage_AccountLocked: 'Conta bloqueada',
+
+  /**
+   * SignupScreen
+   */
+  SignupScreen_HeaderTitle: 'Sua nova conta',
+  SignupScreen_Subtitle: 'Bacon ipsum dolor amet kielbasa filet mignon biltong hamburger tri-tip sirloin.',
+  SignupScreen_CountryLabel: 'Em que país vc mora?',
+  SignupScreen_CountryPlaceholder: 'Selecionar país',
+  SignupScreen_Bottomsheet_Country: 'País',
+  SignupScreen_StateLabel: 'Em que estado vc mora?',
+  SignupScreen_StatePlaceholder: 'Estado',
+  SignupScreen_Bottomsheet_StateLabel: 'Estado',
+  SignupScreen_ErrorMessage_InvalidRequest: 'Algo deu errado!',
+  SignupScreen_ErrorMessage_Unknow: 'Algo deu errado!',
+  SignupScreen_ErrorMessage_EmailRequired: 'E-mail é obrigatório',
+  SignupScreen_ErrorMessage_InvalidEmail: 'E-mail inválido',
+  SignupScreen_ErrorMessage_AccountSuspended: 'Conta suspensa',
+  SignupScreen_ErrorMessage_AccountClosed: 'Conta encerrada',
+  SignupScreen_ErrorMessage_AccountLocked: 'Conta bloqueada',
+  SignupScreen_ErrorMessage_StateNotSupported: 'Estado inválido',
 };
 
 export default pt;

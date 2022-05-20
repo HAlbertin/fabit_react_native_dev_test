@@ -1,4 +1,5 @@
 import React, { memo, useEffect } from 'react';
+import { Portal } from 'react-native-paper';
 import { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import DimensionUtils from '../../utils/dimensions';
@@ -25,10 +26,12 @@ const BottomSheet: React.FC<Props> = ({ visible, onDismiss, children }) => {
   }, [bottom, visible]);
 
   return (
-    <S.AnimatedContainer testID="bottomsheet-animated-container" safeArea={top} style={bottomSheetAnimatedStyle}>
-      <S.Header testID="bottomsheet-animated-header" onTouchEnd={onDismiss} />
-      {visible && children}
-    </S.AnimatedContainer>
+    <Portal>
+      <S.AnimatedContainer testID="bottomsheet-animated-container" safeArea={top} style={bottomSheetAnimatedStyle}>
+        <S.Header testID="bottomsheet-animated-header" onTouchEnd={onDismiss} />
+        {visible && children}
+      </S.AnimatedContainer>
+    </Portal>
   );
 };
 

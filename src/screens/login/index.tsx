@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { RouteStackParamList } from '..';
 import ButtonContained from '../../components/buttons/buttonContained';
 import InputText from '../../components/inputText';
+import KeyboardAvoid from '../../components/keyboardAvoid';
 import Layout from '../../components/layout';
 import Loading from '../../components/loading';
 import useLogin from '../../hooks/useLogin';
@@ -14,8 +15,6 @@ import ValidationUtils from '../../utils/validation';
 import * as S from './styles';
 
 const LoginScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'LoginScreen'>> = ({ navigation }) => {
-  const THRESHOLD_KEYBOARD = 50;
-
   const loginSchemaValidation = Yup.object().shape({
     email: Yup.string().email(translate('LoginScreen_EmailInvalid')).required(translate('LoginScreen_EmailRequired')),
   });
@@ -37,8 +36,7 @@ const LoginScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'LoginSc
 
   const onSuccess = (response: ILoginResponse) => {
     if (response.new_account === true) {
-      // TODO Change to the SIGNUP
-      navigation.navigate('LanguageScreen');
+      navigation.reset({ index: 0, routes: [{ name: 'SignupScreen', params: { email: response.email } }] });
       return;
     }
 
@@ -50,7 +48,7 @@ const LoginScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'LoginSc
 
   return (
     <Layout headerTitle="LoginScreen_HeaderTitle">
-      <S.KeyboardAvoid keyboardVerticalOffset={THRESHOLD_KEYBOARD} behavior="padding">
+      <KeyboardAvoid>
         <Formik validationSchema={loginSchemaValidation} initialValues={initialValues} onSubmit={onSubmit}>
           {({ handleSubmit, handleChange, values, isValid, errors, dirty, isSubmitting }) => (
             <>
@@ -76,7 +74,7 @@ const LoginScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'LoginSc
             </>
           )}
         </Formik>
-      </S.KeyboardAvoid>
+      </KeyboardAvoid>
     </Layout>
   );
 };

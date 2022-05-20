@@ -1,4 +1,3 @@
-import { KeyboardAvoidingView } from 'react-native';
 import styled from 'styled-components/native';
 
 export const FormContainer = styled.View`
@@ -7,9 +6,4 @@ export const FormContainer = styled.View`
   margin-top: 32px;
   margin-bottom: 32px;
   justify-content: space-between;
-`;
-
-export const KeyboardAvoid = styled(KeyboardAvoidingView)`
-  flex: 1;
-  background-color: ${({ theme }) => theme.colors.background};
 `;

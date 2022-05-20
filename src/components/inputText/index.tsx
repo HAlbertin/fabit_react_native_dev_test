@@ -6,16 +6,16 @@ import Typography from '../fonts/typography';
 import * as S from './styles';
 
 interface Props {
-  errorText: string | undefined;
+  errorText?: string | undefined;
   leftIcon?: React.ReactNode;
-  label: TranslationKeys;
+  label?: TranslationKeys;
 }
 
 const InputText: React.FC<Props & TextInputProps> = ({ errorText, leftIcon, label, ...props }) => {
   const inputTextTheme = { ...theme, colors: { ...theme.colors, primary: 'transparent' } };
   return (
     <S.InputContainer>
-      <Typography testID={`${props.testID}-label`} needsTranslate text={label} color={theme.colors.text} />
+      {label && <Typography testID={`${props.testID}-label`} needsTranslate text={label} color={theme.colors.text} />}
 
       <S.InputText
         autoCapitalize={'none'}

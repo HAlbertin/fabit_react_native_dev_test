@@ -8,14 +8,23 @@ type Props = {
   onError: (err: LoginErrorResponse) => void;
 };
 
-const useLogin = (params: Props) =>
-  useMutation(async (email: string) => {
-    try {
-      const response = await post(ENDPOINTS.ACCESS.LOGIN, { email_address: email });
-      return response;
-    } catch (err) {
-      throw new Error(err);
-    }
-  }, params);
+const useLogin = (params: Props) => {
+  let userEmail = '';
+  return useMutation(
+    async (email: string) => {
+      userEmail = email;
+      try {
+        const response = await post(ENDPOINTS.ACCESS.LOGIN, { email_address: email });
+        return response;
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
+    {
+      onSuccess: (data: ILoginResponse) => params.onSuccess({ ...data, email: userEmail }),
+      onError: (err: LoginErrorResponse) => params.onError(err),
+    },
+  );
+};
 
 export default useLogin;

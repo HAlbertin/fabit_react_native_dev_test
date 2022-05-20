@@ -29,6 +29,25 @@ export interface ITranslations {
   LoginScreen_ErrorMessage_AccountSuspended: string;
   LoginScreen_ErrorMessage_AccountClosed: string;
   LoginScreen_ErrorMessage_AccountLocked: string;
+  /**
+   * SignupScreen
+   */
+  SignupScreen_HeaderTitle: string;
+  SignupScreen_Subtitle: string;
+  SignupScreen_CountryLabel: string;
+  SignupScreen_CountryPlaceholder: string;
+  SignupScreen_Bottomsheet_Country: string;
+  SignupScreen_StateLabel: string;
+  SignupScreen_StatePlaceholder: string;
+  SignupScreen_Bottomsheet_StateLabel: string;
+  SignupScreen_ErrorMessage_InvalidRequest: string;
+  SignupScreen_ErrorMessage_Unknow: string;
+  SignupScreen_ErrorMessage_EmailRequired: string;
+  SignupScreen_ErrorMessage_InvalidEmail: string;
+  SignupScreen_ErrorMessage_AccountSuspended: string;
+  SignupScreen_ErrorMessage_AccountClosed: string;
+  SignupScreen_ErrorMessage_AccountLocked: string;
+  SignupScreen_ErrorMessage_StateNotSupported: string;
 }
 
 export type TranslationKeys = keyof ITranslations;

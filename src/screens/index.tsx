@@ -5,10 +5,12 @@ import BackButton from '../components/backButton';
 import { theme } from '../theme';
 import LanguageScreen from './language';
 import LoginScreen from './login';
+import SignupScreen, { SignupProps } from './signup';
 
 export type RouteStackParamList = {
   LanguageScreen: undefined;
   LoginScreen: undefined;
+  SignupScreen: SignupProps;
 };
 
 export type RouteName = keyof RouteStackParamList;
@@ -25,7 +27,7 @@ const Screens: React.FC = () => {
       <Navigator
         screenOptions={{
           headerBackTitleVisible: false,
-          headerLeft: () => <BackButton onPress={goBack} />,
+          headerLeft: ({ canGoBack }) => canGoBack && <BackButton onPress={goBack} />,
           headerShadowVisible: false,
           headerTitleAlign: 'center',
           animation: 'slide_from_right',
@@ -37,6 +39,7 @@ const Screens: React.FC = () => {
       >
         <Screen name="LanguageScreen" component={LanguageScreen} options={{ headerShown: false }} />
         <Screen name="LoginScreen" component={LoginScreen} />
+        <Screen name="SignupScreen" component={SignupScreen} />
       </Navigator>
     </NavigationContainer>
   );

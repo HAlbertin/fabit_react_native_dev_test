@@ -1,26 +1,36 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, useState } from 'react';
 import isEqual from 'react-fast-compare';
-import { FlatList } from 'react-native';
-import ListItem from '../listItem';
-
-export interface IListData {
-  key: string;
-  value: string;
-  icon?: React.ReactNode;
-}
+import { IListData, KeyValue } from '../../interfaces/listKeys';
+import { TranslationKeys } from '../../utils/language/translations/translations.interface';
+import BottomSheetSelection from '../bottomSheetSelection';
+import InputSelect from '../inputSelect';
 
 type Props = {
-  listItems: IListData[];
-  onPress: (selectedItem: string) => void;
+  placeholder: string;
+  label?: TranslationKeys;
+  listTitle?: TranslationKeys;
+  items: IListData[];
+  onSelectedItem: (selected: KeyValue) => void;
 };
 
-const ListSelect: React.FC<Props> = ({ listItems, onPress }) => {
-  const renderItem = useCallback(
-    ({ item }) => <ListItem selectedItem={item.key} label={item.value} onPress={onPress} icon={item.icon} />,
-    [onPress],
+const ListSelect: React.FC<Props> = ({ placeholder, label, listTitle, items, onSelectedItem }) => {
+  const [selectedItem, setSelectedItem] = useState<KeyValue>();
+  const [showBottomSheet, setShowBottomSheet] = useState(false);
+
+  const showList = () => setShowBottomSheet(true);
+
+  const selectItem = (item: KeyValue) => {
+    setShowBottomSheet(false);
+    setSelectedItem(item);
+    onSelectedItem(item);
+  };
+
+  return (
+    <>
+      <InputSelect onClick={showList} label={label ?? null} title={selectedItem?.value ?? placeholder} />
+      <BottomSheetSelection title={listTitle} show={showBottomSheet} itemList={items} onPress={selectItem} />
+    </>
   );
-
-  return <FlatList testID="list-select-flatlist" data={listItems} renderItem={renderItem} />;
 };
 
-export default memo(ListSelect, (p, n) => isEqual(p.listItems, n.listItems));
+export default memo(ListSelect, (p, n) => isEqual(p.items, n.items));

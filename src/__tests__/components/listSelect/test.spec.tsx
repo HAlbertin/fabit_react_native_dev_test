@@ -1,4 +1,4 @@
-import ListSelect from '../../../components/listSelect';
+import ListItems from '../../../components/listItems';
 import { renderWithProviders } from '../../../utils/test';
 
 describe('<ListSelect />', () => {
@@ -10,13 +10,13 @@ describe('<ListSelect />', () => {
   ];
 
   it('should match snapshot', () => {
-    const { toJSON } = renderWithProviders(<ListSelect listItems={itemListMock} onPress={jest.fn()} />);
+    const { toJSON } = renderWithProviders(<ListItems listItems={itemListMock} onPress={jest.fn()} />);
 
     expect(toJSON()).toMatchSnapshot();
   });
 
   it('should render list items', () => {
-    const { getByTestId } = renderWithProviders(<ListSelect listItems={itemListMock} onPress={jest.fn()} />);
+    const { getByTestId } = renderWithProviders(<ListItems listItems={itemListMock} onPress={jest.fn()} />);
 
     const renderedItem = getByTestId('list-item-1');
 

@@ -1,5 +1,6 @@
 import * as Localization from 'expo-localization';
 import i18n from 'i18n-js';
+import StorageUtils from '../storage';
 import de from './translations/de';
 import en from './translations/en';
 import es from './translations/es';
@@ -9,6 +10,8 @@ import pt from './translations/pt';
 import { TranslationKeys } from './translations/translations.interface';
 
 export const getCurrentLocale = () => Localization.locale;
+
+export const getCurrentLanguage = () => StorageUtils.getItem('USER_LANGUAGE');
 
 export const changeLanguage = (newLocale: string) => {
   i18n.locale = newLocale;

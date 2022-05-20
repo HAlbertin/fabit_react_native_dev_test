@@ -5,7 +5,20 @@ export const StyledH1 = styled.Text`
   font-size: 32px;
 `;
 
-export const StyledTypography = styled.Text<{ color?: string; fontSize?: number }>`
+type StyledTypographyProps = { center?: boolean; color?: string; fontSize?: number; bold?: boolean };
+export const StyledTypography = styled.Text<StyledTypographyProps>`
   color: ${({ color, theme }) => color ?? theme.colors.primary};
   font-size: ${({ fontSize }) => fontSize ?? 16}px;
+
+  ${({ center }) =>
+    center &&
+    `
+      text-align: center;   
+    `};
+
+  ${({ bold }) =>
+    bold &&
+    `
+      font-weight: bold;   
+    `};
 `;

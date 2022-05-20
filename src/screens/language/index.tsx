@@ -6,6 +6,7 @@ import ButtonContained from '../../components/buttons/buttonContained';
 import H1 from '../../components/fonts/h1';
 import InputSelect from '../../components/inputSelect';
 import { LANGUAGES_LIST } from '../../constants/language.constants';
+import { IListData } from '../../interfaces/listKeys';
 import { changeLanguage, DEFAULT_LANGUAGE } from '../../utils/language';
 import StorageUtils from '../../utils/storage';
 import * as S from './styles';
@@ -14,8 +15,8 @@ const LanguageScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'Lang
   const [showBottomSheet, setShowBottomSheet] = useState(false);
   const [selectedLang, setSelectedLang] = useState(DEFAULT_LANGUAGE);
 
-  const onLangPress = (lang: string) => {
-    setSelectedLang(lang);
+  const onLangPress = (lang: IListData) => {
+    setSelectedLang(lang.key);
     setShowBottomSheet(false);
   };
 
@@ -36,7 +37,7 @@ const LanguageScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'Lang
           <H1 text="LanguageScreen_SelectLanguage" />
         </S.TextContainer>
 
-        <InputSelect onClick={showList} text={selectedLangName} />
+        <InputSelect onClick={showList} title={selectedLangName} />
       </S.Content>
 
       <S.ButtonContent>

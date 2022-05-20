@@ -1,21 +1,36 @@
 import React, { memo } from 'react';
+import { IListData, KeyValue } from '../../interfaces/listKeys';
+import { theme } from '../../theme';
+import { TranslationKeys } from '../../utils/language/translations/translations.interface';
 import Bottomsheet from '../bottomSheet';
-import ListSelect, { IListData } from '../listSelect';
+import Typography from '../fonts/typography';
+import ListItems from '../listItems';
 
 type Props = {
   show: boolean;
-  onPress: (item: string) => void;
+  onPress: (item: KeyValue) => void;
   itemList: IListData[];
+  title?: TranslationKeys;
 };
 
-const BottomSheetSelection: React.FC<Props> = ({ show, onPress, itemList }) => {
-  const closeBottomSheet = (selectedItem: string) => {
+const BottomSheetSelection: React.FC<Props> = ({ show, onPress, itemList, title }) => {
+  const closeBottomSheet = (selectedItem: KeyValue) => {
     onPress(selectedItem);
   };
 
   return (
     <Bottomsheet visible={show}>
-      <ListSelect listItems={itemList} onPress={closeBottomSheet} />
+      {title && (
+        <Typography
+          color={theme.colors.absolutes.black}
+          needsTranslate
+          testID="bottom-sheet-title"
+          text={title}
+          center
+          bold
+        />
+      )}
+      <ListItems listItems={itemList} onPress={closeBottomSheet} />
     </Bottomsheet>
   );
 };

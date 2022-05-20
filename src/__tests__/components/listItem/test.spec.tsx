@@ -1,4 +1,4 @@
-import ListItem from '../../../components/listItem';
+import ListItem from '../../../components/listItems/item';
 import { renderWithProviders } from '../../../utils/test';
 
 describe('<ListItem />', () => {
