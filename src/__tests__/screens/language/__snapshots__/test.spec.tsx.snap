@@ -194,6 +194,7 @@ exports[`<LanguageScreen /> should match snapshot 1`] = `
                           },
                         ]
                       }
+                      testID="input-select-text"
                     >
                       English
                     </Text>
@@ -343,6 +344,7 @@ exports[`<LanguageScreen /> should match snapshot 1`] = `
                             },
                           ]
                         }
+                        testID="button-contained-text"
                       >
                         Continue
                       </Text>

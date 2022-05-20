@@ -15,7 +15,7 @@ const InputText: React.FC<Props & TextInputProps> = ({ errorText, leftIcon, labe
   const inputTextTheme = { ...theme, colors: { ...theme.colors, primary: 'transparent' } };
   return (
     <S.InputContainer>
-      <Typography needsTranslate text={label} color={theme.colors.text} />
+      <Typography testID={`${props.testID}-label`} needsTranslate text={label} color={theme.colors.text} />
 
       <S.InputText
         autoCapitalize={'none'}
@@ -28,7 +28,7 @@ const InputText: React.FC<Props & TextInputProps> = ({ errorText, leftIcon, labe
         theme={inputTextTheme}
         {...props}
       />
-      <Typography text={errorText ?? ''} color={theme.colors.error} />
+      <Typography testID={`${props.testID}-error`} text={errorText ?? ''} color={theme.colors.error} />
     </S.InputContainer>
   );
 };

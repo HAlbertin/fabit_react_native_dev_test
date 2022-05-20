@@ -14,7 +14,7 @@ const InputSelect: React.FC<Props> = ({ onClick, text, arrowRight }) => {
     <S.Container testID="input-select-container" onPress={onClick}>
       <S.TextInputSelect>
         <S.TextContainer>
-          <Typography text={text} color={theme.colors.absolutes.gray} />
+          <Typography testID="input-select-text" text={text} color={theme.colors.absolutes.gray} />
         </S.TextContainer>
 
         {arrowRight ? <S.ArrowRightIcon /> : <S.ArrowDownIcon />}

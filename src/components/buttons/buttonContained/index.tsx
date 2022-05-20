@@ -13,7 +13,7 @@ type Props = {
 const ButtonContained: React.FC<Props> = ({ text, disabled = false, onPress }) => {
   return (
     <PrimaryButtonContained disabled={disabled} testID="button-contained" onPress={onPress}>
-      <Typography color={theme.colors.secondary} needsTranslate text={text} />
+      <Typography testID="button-contained-text" color={theme.colors.secondary} needsTranslate text={text} />
     </PrimaryButtonContained>
   );
 };

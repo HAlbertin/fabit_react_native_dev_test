@@ -63,7 +63,9 @@ const LoginScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'LoginSc
                   keyboardType="email-address"
                   errorText={errors?.email?.toString()}
                   label="LoginScreen_Email"
+                  testID="email-input"
                 />
+
                 <ButtonContained
                   disabled={ValidationUtils.formDisabled({ dirty, isValid, isSubmitting })}
                   onPress={handleSubmit}

@@ -5,14 +5,15 @@ import { StyledTypography } from '../styles';
 
 type Props = {
   text: TranslationKeys | string;
+  testID: string;
   needsTranslate?: boolean;
   color?: string;
   fontSize?: number;
 };
 
-const Typography: React.FC<Props> = ({ text, color, fontSize, needsTranslate = false }) => {
+const Typography: React.FC<Props> = ({ text, testID, color, fontSize, needsTranslate = false }) => {
   return (
-    <StyledTypography fontSize={fontSize} color={color}>
+    <StyledTypography testID={testID} fontSize={fontSize} color={color}>
       {needsTranslate ? translate(text as TranslationKeys) : text}
     </StyledTypography>
   );

@@ -66,6 +66,7 @@ exports[`<InputSelect /> should match snapshot 1`] = `
               },
             ]
           }
+          testID="input-select-text"
         >
           inputMock
         </Text>
