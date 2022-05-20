@@ -9,3 +9,5 @@ jest.mock('react-native-safe-area-context', () => mockSafeAreaContext);
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 global.__reanimatedWorkletInit = () => {};
 jest.mock('react-native-reanimated', () => require('react-native-reanimated/mock'));
+
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');

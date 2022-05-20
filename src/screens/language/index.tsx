@@ -2,12 +2,10 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useCallback, useMemo, useState } from 'react';
 import { RouteStackParamList } from '..';
 import BottomSheetSelection from '../../components/bottomSheetSelection';
-import { PrimaryButtonContained } from '../../components/buttons/styles';
+import ButtonContained from '../../components/buttons/buttonContained';
 import H1 from '../../components/fonts/h1';
-import Typography from '../../components/fonts/typography';
 import InputSelect from '../../components/inputSelect';
 import { LANGUAGES_LIST } from '../../constants/language.constants';
-import { theme } from '../../theme';
 import { changeLanguage, DEFAULT_LANGUAGE } from '../../utils/language';
 import StorageUtils from '../../utils/storage';
 import * as S from './styles';
@@ -37,13 +35,12 @@ const LanguageScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'Lang
         <S.TextContainer>
           <H1 text="LanguageScreen_SelectLanguage" />
         </S.TextContainer>
+
         <InputSelect onClick={showList} text={selectedLangName} />
       </S.Content>
 
       <S.ButtonContent>
-        <PrimaryButtonContained testID="continue-button" onPress={onContinue}>
-          <Typography color={theme.colors.secondary} needsTranslate text="LanguageScreen_ContinueButton" />
-        </PrimaryButtonContained>
+        <ButtonContained onPress={onContinue} text="LanguageScreen_ContinueButton" />
       </S.ButtonContent>
 
       <BottomSheetSelection show={showBottomSheet} itemList={LANGUAGES_LIST} onPress={onLangPress} />

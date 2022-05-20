@@ -21,15 +21,13 @@ export const Circle = styled.View`
 `;
 
 export const Content = styled.View`
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 0 24px;
   align-items: center;
   justify-content: center;
 `;
 
 export const ButtonContent = styled.View`
-  padding-left: 28px;
-  padding-right: 28px;
+  padding: 0 28px;
   width: 100%;
   margin: 16px;
 `;

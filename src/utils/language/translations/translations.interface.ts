@@ -20,6 +20,15 @@ export interface ITranslations {
   LoginScreen_Email: string;
   LoginScreen_EmailPlaceholder: string;
   LoginScreen_ContinueButton: string;
+  LoginScreen_EmailInvalid: string;
+  LoginScreen_EmailRequired: string;
+  LoginScreen_ErrorMessage_InvalidRequest: string;
+  LoginScreen_ErrorMessage_Unknow: string;
+  LoginScreen_ErrorMessage_EmailRequired: string;
+  LoginScreen_ErrorMessage_InvalidEmail: string;
+  LoginScreen_ErrorMessage_AccountSuspended: string;
+  LoginScreen_ErrorMessage_AccountClosed: string;
+  LoginScreen_ErrorMessage_AccountLocked: string;
 }
 
 export type TranslationKeys = keyof ITranslations;

@@ -10,6 +10,5 @@ export const PrimaryButtonContained = styled(Button).attrs(({ theme, disabled })
     backgroundColor: disabled ? theme.colors.disabled : theme.colors.primary,
   },
 }))`
-  align-self: stretch;
   border-radius: 0;
 `;

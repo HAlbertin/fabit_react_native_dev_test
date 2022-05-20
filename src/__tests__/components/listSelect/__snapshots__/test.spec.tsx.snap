@@ -97,9 +97,9 @@ exports[`<ListSelect /> should match snapshot 1`] = `
                   style={
                     Array [
                       Object {
-                        "color": "#0000",
+                        "color": "#000",
                         "fontFamily": "System",
-                        "fontSize": 14,
+                        "fontSize": 16,
                         "fontWeight": "400",
                       },
                       Object {

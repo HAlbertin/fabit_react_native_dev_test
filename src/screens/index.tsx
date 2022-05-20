@@ -2,6 +2,7 @@ import { NavigationContainer, NavigationContainerRef } from '@react-navigation/n
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import BackButton from '../components/backButton';
+import { theme } from '../theme';
 import LanguageScreen from './language';
 import LoginScreen from './login';
 
@@ -28,6 +29,9 @@ const Screens: React.FC = () => {
           headerShadowVisible: false,
           headerTitleAlign: 'center',
           animation: 'slide_from_right',
+          contentStyle: {
+            backgroundColor: theme.colors.background,
+          },
         }}
         initialRouteName="LanguageScreen"
       >

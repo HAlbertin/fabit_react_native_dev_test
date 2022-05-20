@@ -11,7 +11,7 @@ type Props = {
 
 const InputSelect: React.FC<Props> = ({ onClick, text, arrowRight }) => {
   return (
-    <S.Container testID="input-select-container" onPressIn={onClick}>
+    <S.Container testID="input-select-container" onPress={onClick}>
       <S.TextInputSelect>
         <S.TextContainer>
           <Typography text={text} color={theme.colors.absolutes.gray} />

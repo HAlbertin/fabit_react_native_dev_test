@@ -95,8 +95,10 @@ exports[`<LanguageScreen /> should match snapshot 1`] = `
                   Object {
                     "alignItems": "center",
                     "justifyContent": "center",
+                    "paddingBottom": 0,
                     "paddingLeft": 24,
                     "paddingRight": 24,
+                    "paddingTop": 0,
                   },
                 ]
               }
@@ -197,13 +199,13 @@ exports[`<LanguageScreen /> should match snapshot 1`] = `
                     </Text>
                   </View>
                   <
-                    height={13}
+                    height={16}
                     style={
                       Array [
                         Object {},
                       ]
                     }
-                    width={8}
+                    width={10}
                   />
                 </View>
               </View>
@@ -216,8 +218,10 @@ exports[`<LanguageScreen /> should match snapshot 1`] = `
                     "marginLeft": 16,
                     "marginRight": 16,
                     "marginTop": 16,
+                    "paddingBottom": 0,
                     "paddingLeft": 28,
                     "paddingRight": 28,
+                    "paddingTop": 0,
                     "width": "100%",
                   },
                 ]
@@ -227,7 +231,6 @@ exports[`<LanguageScreen /> should match snapshot 1`] = `
                 collapsable={false}
                 style={
                   Object {
-                    "alignSelf": "stretch",
                     "backgroundColor": "#FFB81C",
                     "borderColor": "transparent",
                     "borderRadius": 0,
@@ -271,7 +274,7 @@ exports[`<LanguageScreen /> should match snapshot 1`] = `
                       },
                     ]
                   }
-                  testID="continue-button"
+                  testID="button-contained"
                 >
                   <View
                     style={
@@ -294,9 +297,9 @@ exports[`<LanguageScreen /> should match snapshot 1`] = `
                       style={
                         Array [
                           Object {
-                            "color": "#0000",
+                            "color": "#000",
                             "fontFamily": "System",
-                            "fontSize": 14,
+                            "fontSize": 16,
                             "fontWeight": "400",
                           },
                           Object {
@@ -314,12 +317,12 @@ exports[`<LanguageScreen /> should match snapshot 1`] = `
                             Object {
                               "color": "#000000",
                               "fontFamily": "System",
-                              "fontSize": 14,
+                              "fontSize": 16,
                               "fontWeight": "500",
                             },
                             Object {
                               "fontFamily": "System",
-                              "fontSize": 14,
+                              "fontSize": 16,
                               "fontWeight": "500",
                             },
                             Object {
@@ -330,7 +333,19 @@ exports[`<LanguageScreen /> should match snapshot 1`] = `
                         ]
                       }
                     >
-                      Continue
+                      <Text
+                        color="#101820"
+                        style={
+                          Array [
+                            Object {
+                              "color": "#101820",
+                              "fontSize": 16,
+                            },
+                          ]
+                        }
+                      >
+                        Continue
+                      </Text>
                     </Text>
                   </View>
                 </View>

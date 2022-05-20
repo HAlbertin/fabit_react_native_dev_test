@@ -24,6 +24,15 @@ const de: ITranslations = {
   LoginScreen_Email: 'Email (de)',
   LoginScreen_EmailPlaceholder: 'Your email address (de)',
   LoginScreen_ContinueButton: 'Continue (de)',
+  LoginScreen_EmailInvalid: 'Invalid email (de)',
+  LoginScreen_EmailRequired: 'Email is required (de)',
+  LoginScreen_ErrorMessage_InvalidRequest: 'Something went wrong',
+  LoginScreen_ErrorMessage_Unknow: 'Something went wrong',
+  LoginScreen_ErrorMessage_EmailRequired: 'Email Required',
+  LoginScreen_ErrorMessage_InvalidEmail: 'Invalid Email',
+  LoginScreen_ErrorMessage_AccountSuspended: 'Account Suspended',
+  LoginScreen_ErrorMessage_AccountClosed: 'Account Closed',
+  LoginScreen_ErrorMessage_AccountLocked: 'Account locked',
 };
 
 export default de;

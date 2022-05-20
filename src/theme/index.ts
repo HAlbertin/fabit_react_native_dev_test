@@ -8,11 +8,11 @@ export const theme = {
   fonts: {
     regular: {
       ...PaperTheme.fonts.regular,
-      fontSize: 14,
+      fontSize: 16,
     },
     medium: {
       ...PaperTheme.fonts.medium,
-      fontSize: 14,
+      fontSize: 16,
     },
     light: {
       ...PaperTheme.fonts.light,
@@ -28,17 +28,17 @@ export const theme = {
     primary: '#FFB81C',
     secondary: '#101820',
     background: '#F7F8F7',
-    surface: '#0000',
-    accent: '#0000',
+    surface: '#000',
+    accent: '#000',
     error: '#E02020',
-    text: '#0000',
-    onSurface: '#0000',
+    text: '#000',
+    onSurface: '#000',
     disabled: '#999999',
     placeholder: '#707070',
     backdrop: '#CCCCCC',
     notification: '#E7E8E9',
     absolutes: {
-      black: '#000000',
+      black: '#000',
       white: '#FFFFFF',
       gray: '#CCCCCC',
     },
