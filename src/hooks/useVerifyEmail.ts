@@ -5,7 +5,10 @@ import { IMonitorResponse, MonitorErrorResponse } from '../services/api/interfac
 import ENDPOINTS from '../services/api/_endpoints';
 import StorageUtils from '../utils/storage';
 
-const useVerifyEmail = (onSuccess: (response: IMonitorResponse) => void, enabled = true) => {
+const useVerifyEmail = (
+  onSuccess: (response: IMonitorResponse) => void,
+  onError: (error: MonitorErrorResponse) => void,
+) => {
   return useQuery<IMonitorResponse, MonitorErrorResponse>(
     REACT_QUERY_CONSTANTS.MONITOR_SESSION,
     async () => {
@@ -17,7 +20,7 @@ const useVerifyEmail = (onSuccess: (response: IMonitorResponse) => void, enabled
         throw new Error(err);
       }
     },
-    { retry: true, cacheTime: Infinity, onSuccess, enabled },
+    { onSuccess, onError },
   );
 };
 

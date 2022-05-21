@@ -1,15 +1,18 @@
 import { NavigationContainer, NavigationContainerRef } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
+import { MiniLogoSVG } from '../assets/svgs/_index';
 import BackButton from '../components/backButton';
 import { theme } from '../theme';
 import EmailScreen from './email';
 import LanguageScreen from './language';
 import LoginScreen from './login';
 import SignupScreen, { SignupProps } from './signup';
+import SplashScreen from './splash';
 import SuccessScreen from './success';
 
 export type RouteStackParamList = {
+  SplashScreen: undefined;
   LanguageScreen: undefined;
   LoginScreen: undefined;
   SignupScreen: SignupProps;
@@ -32,6 +35,7 @@ const Screens: React.FC = () => {
         screenOptions={{
           headerBackTitleVisible: false,
           headerLeft: ({ canGoBack }) => canGoBack && <BackButton onPress={goBack} />,
+          headerRight: () => <MiniLogoSVG />,
           headerShadowVisible: false,
           headerTitleAlign: 'center',
           animation: 'slide_from_right',
@@ -39,8 +43,9 @@ const Screens: React.FC = () => {
             backgroundColor: theme.colors.background,
           },
         }}
-        initialRouteName="LanguageScreen"
+        initialRouteName="SplashScreen"
       >
+        <Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
         <Screen name="LanguageScreen" component={LanguageScreen} options={{ headerShown: false }} />
         <Screen name="LoginScreen" component={LoginScreen} />
         <Screen name="SignupScreen" component={SignupScreen} />

@@ -5,11 +5,19 @@ import { PrimaryButtonText } from '../../components/buttons/styles';
 import DialogContent from '../../components/dialogContent';
 import Typography from '../../components/fonts/typography';
 import useVerifyEmail from '../../hooks/useVerifyEmail';
-import { IMonitorResponse } from '../../services/api/interfaces/monitor.interfaces';
+import {
+  IMonitorResponse,
+  MonitorErrorResponse,
+  MONITOR_ERROR_MESSAGES,
+} from '../../services/api/interfaces/monitor.interfaces';
+import StorageUtils from '../../utils/storage';
 import * as S from './styles';
 
 const EmailScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'EmailScreen'>> = ({ navigation }) => {
-  const goToLogin = () => navigation.reset({ index: 0, routes: [{ name: 'LoginScreen' }] });
+  const goToLogin = () => {
+    StorageUtils.deleteItem('USER_SESSION');
+    navigation.reset({ index: 0, routes: [{ name: 'LoginScreen' }] });
+  };
 
   const onSuccess = (response: IMonitorResponse) => {
     if (response.expired) {
@@ -20,7 +28,14 @@ const EmailScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'EmailSc
     navigation.reset({ index: 0, routes: [{ name: 'SuccessScreen' }] });
   };
 
-  useVerifyEmail(onSuccess);
+  const onError = (error: MonitorErrorResponse) => {
+    /**
+     * TODO: show error to the user
+     */
+    console.error(MONITOR_ERROR_MESSAGES[error]);
+  };
+
+  useVerifyEmail(onSuccess, onError);
 
   return (
     <>

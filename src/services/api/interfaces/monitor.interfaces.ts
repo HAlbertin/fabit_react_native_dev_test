@@ -10,7 +10,7 @@ export enum MonitorErrorResponse {
   EXPIRED_MAGIC_LINK = '_EXPIRED_MAGIC_LINK_',
 }
 
-export const LOGIN_ERROR_MESSAGES = {
+export const MONITOR_ERROR_MESSAGES = {
   [MonitorErrorResponse.INVALID_REQUEST]: 'EmailScreen_ErrorMessage_InvalidRequest',
   [MonitorErrorResponse.SOMETHING_WENT_WRONG]: 'EmailScreen_ErrorMessage_Unknow',
   [MonitorErrorResponse.LOGIN_COMPLETE]: 'EmailScreen_ErrorMessage_EmailRequired',
