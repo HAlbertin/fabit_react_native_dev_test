@@ -11,7 +11,9 @@ import { TranslationKeys } from './translations/translations.interface';
 
 export const getCurrentLocale = () => Localization.locale;
 
-export const getCurrentLanguage = () => StorageUtils.getItem('USER_LANGUAGE');
+export const DEFAULT_LANGUAGE = 'en';
+
+export const getCurrentLanguage = () => StorageUtils.getItem('USER_LANGUAGE') ?? DEFAULT_LANGUAGE;
 
 export const changeLanguage = (newLocale: string) => {
   i18n.locale = newLocale;
@@ -27,8 +29,6 @@ export const LANGUAGES = [
   { lang: 'de', file: de, name: 'Language_De' },
   { lang: 'fr', file: fr, name: 'Language_Fr' },
 ];
-
-export const DEFAULT_LANGUAGE = 'en';
 
 const setupInitialLanguage = () => {
   i18n.fallbacks = true;

@@ -16,7 +16,6 @@ type Props = {
 const ListSelect: React.FC<Props> = ({ placeholder, label, listTitle, items, onSelectedItem }) => {
   const [selectedItem, setSelectedItem] = useState<KeyValue>();
   const [showBottomSheet, setShowBottomSheet] = useState(false);
-
   const showList = () => setShowBottomSheet(true);
 
   const selectItem = (item: KeyValue) => {

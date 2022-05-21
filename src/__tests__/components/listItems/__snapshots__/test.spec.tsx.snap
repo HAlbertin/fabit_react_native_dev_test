@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ListSelect /> should match snapshot 1`] = `
+exports[`<ListItems /> should match snapshot 1`] = `
 <View
   collapsable={false}
   pointerEvents="box-none"
@@ -228,6 +228,10 @@ exports[`<ListSelect /> should match snapshot 1`] = `
             "key": "1",
             "value": "teste",
           },
+          Object {
+            "key": "2",
+            "value": "bla_bla_bla",
+          },
         ]
       }
       getItem={[Function]}
@@ -329,6 +333,105 @@ exports[`<ListSelect /> should match snapshot 1`] = `
                     }
                   >
                     teste
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0, 0, 0, 0.12)",
+                    "height": 0.5,
+                  },
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View>
+            <View
+              accessibilityState={
+                Object {
+                  "disabled": false,
+                }
+              }
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  false,
+                  Array [
+                    Object {
+                      "padding": 8,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              testID="list-item-2"
+            >
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "marginVertical": 6,
+                        "paddingLeft": 8,
+                      },
+                      Object {
+                        "flex": 1,
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    numberOfLines={1}
+                    selectable={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#000",
+                          "fontFamily": "System",
+                          "fontSize": 16,
+                          "fontWeight": "400",
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Array [
+                          Object {
+                            "fontSize": 16,
+                          },
+                          Object {
+                            "color": "rgba(0, 0, 0, 0.87)",
+                          },
+                          undefined,
+                        ],
+                      ]
+                    }
+                  >
+                    bla_bla_bla
                   </Text>
                 </View>
               </View>

@@ -1,11 +1,9 @@
-import debounce from 'lodash.debounce';
-import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import isEqual from 'react-fast-compare';
 import { FlatList } from 'react-native';
-import { TextInput } from 'react-native-paper';
 import { IListData, KeyValue } from '../../interfaces/listKeys';
-import InputText from '../inputText';
 import ListItem from './item';
+import SearchInput from './searchInput';
 import * as S from './styles';
 
 type Props = {
@@ -23,28 +21,9 @@ const ListItems: React.FC<Props> = ({ listItems, onPress }) => {
     [onPress],
   );
 
-  const filterList = useCallback(
-    (filterText: string) => {
-      setFilteredItems(listItems.filter(i => i.value.toLowerCase().includes(filterText.toLowerCase())));
-    },
-    [listItems],
-  );
-
-  const debouncedChangeHandler = useMemo(() => debounce(filterList, 300), [filterList]);
-
-  useEffect(() => {
-    return () => {
-      debouncedChangeHandler.cancel();
-    };
-  }, [debouncedChangeHandler]);
-
   return (
     <S.Container>
-      <InputText
-        leftIcon={<TextInput.Icon name="magnify" />}
-        placeholder={'Search'}
-        onChangeText={debouncedChangeHandler}
-      />
+      <SearchInput originalList={listItems} setFilteredList={setFilteredItems} />
 
       <FlatList
         removeClippedSubviews={true}

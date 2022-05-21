@@ -57,12 +57,14 @@ exports[`<InputSelect /> should match snapshot 1`] = `
         }
       >
         <Text
-          color="#CCCCCC"
+          bold={true}
+          color="#707070"
           style={
             Array [
               Object {
-                "color": "#CCCCCC",
+                "color": "#707070",
                 "fontSize": 16,
+                "fontWeight": "bold",
               },
             ]
           }

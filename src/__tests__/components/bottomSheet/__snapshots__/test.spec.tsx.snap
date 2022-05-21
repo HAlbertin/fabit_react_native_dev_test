@@ -19,7 +19,7 @@ exports[`<BottomSheet /> should match snapshot 1`] = `
           "borderTopLeftRadius": 16,
           "borderTopRightRadius": 16,
           "elevation": 2,
-          "height": 1314,
+          "height": 1284,
           "position": "absolute",
           "shadowOpacity": 0.2,
           "width": "100%",
