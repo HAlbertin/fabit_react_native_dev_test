@@ -169,6 +169,7 @@ exports[`<BottomSheetSelection /> should match snapshot 1`] = `
                   },
                 ]
               }
+              testID="search-input"
               underlineColorAndroid="transparent"
             />
           </View>
@@ -254,7 +255,7 @@ exports[`<BottomSheetSelection /> should match snapshot 1`] = `
               },
             ]
           }
-          testID="undefined-error"
+          testID="search-input-error"
         >
           
         </Text>
