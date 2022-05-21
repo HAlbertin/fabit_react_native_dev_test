@@ -16,7 +16,7 @@ import {
   ISignupResponse,
   SignupErrorResponse,
   SIGNUP_ERROR_MESSAGES,
-} from '../../services/api/_interfaces';
+} from '../../services/api/interfaces/signup.interfaces';
 import { theme } from '../../theme';
 import CountriesUtils from '../../utils/countries';
 import { getCurrentLanguage, translate } from '../../utils/language';
@@ -50,11 +50,8 @@ const SignupScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'Signup
   };
 
   const onSuccess = (response: ISignupResponse) => {
-    /**
-     * TODO: navigate to the waiting e-mail screen
-     */
     StorageUtils.setItem('USER_SESSION', response.session_key);
-    navigation.reset({ index: 0, routes: [{ name: 'LanguageScreen' }] });
+    navigation.reset({ index: 0, routes: [{ name: 'EmailScreen' }] });
   };
 
   const onError = (error: SignupErrorResponse) => {

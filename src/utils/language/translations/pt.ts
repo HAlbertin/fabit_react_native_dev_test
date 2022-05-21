@@ -53,6 +53,19 @@ const pt: ITranslations = {
   SignupScreen_ErrorMessage_AccountClosed: 'Conta encerrada',
   SignupScreen_ErrorMessage_AccountLocked: 'Conta bloqueada',
   SignupScreen_ErrorMessage_StateNotSupported: 'Estado inválido',
+
+  /**
+   * EmailScreen
+   */
+  EmailScreen_VerifyEmail_Title: 'Verifique o seu e-mail',
+  EmailScreen_VerifyEmail_Subtitle: 'Por favor, verifique o seu e-mail',
+  EmailScreen_SuccessEmail_Title: 'E-mail verificado!',
+  EmailScreen_SuccessEmail_Subtitle: 'Aguarde enquanto te direcionamos...',
+  EmailScreen_CancelButton: 'Cancelar',
+  EmailScreen_ErrorMessage_InvalidRequest: 'Algo deu errado',
+  EmailScreen_ErrorMessage_Unknow: 'Algo deu errado',
+  EmailScreen_ErrorMessage_EmailRequired: 'E-mail é obrigatório',
+  EmailScreen_ErrorMessage_InvalidEmail: 'E-mail inválido',
 };
 
 export default pt;

@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosRequestHeaders } from 'axios';
 import { Platform } from 'react-native';
+import FormatUtils from '../../utils/format';
 
 const IOS = '3';
 const ANDROID = '2';
@@ -23,9 +24,9 @@ export async function post<T>(url: string, data?: unknown, headers?: AxiosReques
   }
 }
 
-export async function get<T>(url: string, data: unknown, headers?: AxiosRequestHeaders): Promise<T> {
+export async function get<T>(url: string, params?: string[], headers?: AxiosRequestHeaders): Promise<T> {
   try {
-    const response = await instance.post<T>(url, data, { headers });
+    const response = await instance.get<T>(FormatUtils.formatUrl(url, params), { headers });
     return response.data;
   } catch (error) {
     const err = error as AxiosError;

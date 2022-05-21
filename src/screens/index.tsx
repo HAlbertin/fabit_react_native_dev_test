@@ -3,14 +3,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import BackButton from '../components/backButton';
 import { theme } from '../theme';
+import EmailScreen from './email';
 import LanguageScreen from './language';
 import LoginScreen from './login';
 import SignupScreen, { SignupProps } from './signup';
+import SuccessScreen from './success';
 
 export type RouteStackParamList = {
   LanguageScreen: undefined;
   LoginScreen: undefined;
   SignupScreen: SignupProps;
+  EmailScreen: undefined;
+  SuccessScreen: undefined;
 };
 
 export type RouteName = keyof RouteStackParamList;
@@ -40,6 +44,8 @@ const Screens: React.FC = () => {
         <Screen name="LanguageScreen" component={LanguageScreen} options={{ headerShown: false }} />
         <Screen name="LoginScreen" component={LoginScreen} />
         <Screen name="SignupScreen" component={SignupScreen} />
+        <Screen name="EmailScreen" component={EmailScreen} options={{ headerShown: false }} />
+        <Screen name="SuccessScreen" component={SuccessScreen} options={{ headerShown: false }} />
       </Navigator>
     </NavigationContainer>
   );

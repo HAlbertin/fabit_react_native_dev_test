@@ -48,6 +48,19 @@ export interface ITranslations {
   SignupScreen_ErrorMessage_AccountClosed: string;
   SignupScreen_ErrorMessage_AccountLocked: string;
   SignupScreen_ErrorMessage_StateNotSupported: string;
+
+  /**
+   * EmailScreen
+   */
+  EmailScreen_VerifyEmail_Title: string;
+  EmailScreen_VerifyEmail_Subtitle: string;
+  EmailScreen_SuccessEmail_Title: string;
+  EmailScreen_SuccessEmail_Subtitle: string;
+  EmailScreen_CancelButton: string;
+  EmailScreen_ErrorMessage_InvalidRequest: string;
+  EmailScreen_ErrorMessage_Unknow: string;
+  EmailScreen_ErrorMessage_EmailRequired: string;
+  EmailScreen_ErrorMessage_InvalidEmail: string;
 }
 
 export type TranslationKeys = keyof ITranslations;

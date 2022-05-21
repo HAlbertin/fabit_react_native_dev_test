@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { ArrowBackSVG } from '../../assets/svgs';
+import { ArrowBackSVG } from '../../assets/svgs/_index';
 
 export const IconContainer = styled.View`
   justify-content: center;

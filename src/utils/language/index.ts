@@ -12,6 +12,10 @@ import { TranslationKeys } from './translations/translations.interface';
 export const getCurrentLocale = () => Localization.locale;
 
 export const DEFAULT_LANGUAGE = 'en';
+export const DEFAULT_TRANSLATION = {
+  key: DEFAULT_LANGUAGE,
+  value: 'English',
+};
 
 export const getCurrentLanguage = () => StorageUtils.getItem('USER_LANGUAGE') ?? DEFAULT_LANGUAGE;
 

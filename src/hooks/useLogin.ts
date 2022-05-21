@@ -1,7 +1,7 @@
 import { useMutation } from 'react-query';
 import { post } from '../services/api';
+import { ILoginResponse, LoginErrorResponse } from '../services/api/interfaces/login.interfaces';
 import ENDPOINTS from '../services/api/_endpoints';
-import { ILoginResponse, LoginErrorResponse } from '../services/api/_interfaces';
 
 type Props = {
   onSuccess: (response: ILoginResponse) => void;

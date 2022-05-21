@@ -9,8 +9,13 @@ import KeyboardAvoid from '../../components/keyboardAvoid';
 import Layout from '../../components/layout';
 import Loading from '../../components/loading';
 import useLogin from '../../hooks/useLogin';
-import { ILoginResponse, LoginErrorResponse, LOGIN_ERROR_MESSAGES } from '../../services/api/_interfaces';
+import {
+  ILoginResponse,
+  LoginErrorResponse,
+  LOGIN_ERROR_MESSAGES,
+} from '../../services/api/interfaces/login.interfaces';
 import { translate } from '../../utils/language';
+import StorageUtils from '../../utils/storage';
 import ValidationUtils from '../../utils/validation';
 import * as S from './styles';
 
@@ -40,8 +45,8 @@ const LoginScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'LoginSc
       return;
     }
 
-    // TODO Change to the HOME
-    //navigation.navigate('LanguageScreen');
+    StorageUtils.setItem('USER_SESSION', response.session_key);
+    navigation.reset({ index: 0, routes: [{ name: 'EmailScreen' }] });
   };
 
   const { mutate } = useLogin({ onError, onSuccess });

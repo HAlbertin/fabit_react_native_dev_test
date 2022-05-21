@@ -5,10 +5,16 @@ import { StyledH1 } from '../styles';
 
 type Props = {
   text: TranslationKeys;
+  color?: string;
+  bold?: boolean;
 };
 
-const H1: React.FC<Props> = ({ text }) => {
-  return <StyledH1>{translate(text)}</StyledH1>;
+const H1: React.FC<Props> = ({ text, color, bold }) => {
+  return (
+    <StyledH1 color={color} bold={bold}>
+      {translate(text)}
+    </StyledH1>
+  );
 };
 
 export default memo(H1);

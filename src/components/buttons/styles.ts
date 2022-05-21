@@ -12,3 +12,14 @@ export const PrimaryButtonContained = styled(Button).attrs(({ theme, disabled })
 }))`
   border-radius: 0;
 `;
+
+export const PrimaryButtonText = styled(Button).attrs(({ theme }) => ({
+  mode: 'text',
+  uppercase: false,
+  labelStyle: { color: theme.colors.secondary, fontWeight: 'bold' },
+  contentStyle: {
+    height: 64,
+  },
+}))`
+  border-radius: 0;
+`;

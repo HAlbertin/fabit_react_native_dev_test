@@ -1,8 +1,14 @@
 import styled from 'styled-components/native';
 
-export const StyledH1 = styled.Text`
-  color: ${({ theme }) => theme.colors.primary};
+export const StyledH1 = styled.Text<{ color?: string; bold?: boolean }>`
+  color: ${({ color, theme }) => color ?? theme.colors.primary};
   font-size: 32px;
+
+  ${({ bold }) =>
+    bold &&
+    `
+      font-weight: bold;   
+    `};
 `;
 
 type StyledTypographyProps = { center?: boolean; color?: string; fontSize?: number; bold?: boolean };

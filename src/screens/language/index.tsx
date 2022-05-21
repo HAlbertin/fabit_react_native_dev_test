@@ -7,12 +7,12 @@ import H1 from '../../components/fonts/h1';
 import ListSelect from '../../components/listSelect';
 import { LANGUAGES_LIST } from '../../constants/language.constants';
 import { IListData } from '../../interfaces/listKeys';
-import { changeLanguage, DEFAULT_LANGUAGE } from '../../utils/language';
+import { changeLanguage, DEFAULT_LANGUAGE, DEFAULT_TRANSLATION } from '../../utils/language';
 import StorageUtils from '../../utils/storage';
 import * as S from './styles';
 
 const LanguageScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'LanguageScreen'>> = ({ navigation }) => {
-  const [selectedLang, setSelectedLang] = useState<IListData>();
+  const [selectedLang, setSelectedLang] = useState<IListData>(DEFAULT_TRANSLATION);
 
   const onLangPress = (lang: IListData) => {
     setSelectedLang(produce(() => lang));

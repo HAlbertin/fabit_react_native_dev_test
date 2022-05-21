@@ -53,6 +53,19 @@ const fr: ITranslations = {
   SignupScreen_ErrorMessage_AccountClosed: 'Account Closed (fr)',
   SignupScreen_ErrorMessage_AccountLocked: 'Account Locked (fr)',
   SignupScreen_ErrorMessage_StateNotSupported: 'Invalid State (fr)',
+
+  /**
+   * EmailScreen
+   */
+  EmailScreen_VerifyEmail_Title: 'Verify your email (fr)',
+  EmailScreen_VerifyEmail_Subtitle: 'Please check your emails (fr)',
+  EmailScreen_SuccessEmail_Title: 'Email verified! (fr)',
+  EmailScreen_SuccessEmail_Subtitle: 'Please wait while we redirect you... (fr)',
+  EmailScreen_CancelButton: 'Cancel (fr)',
+  EmailScreen_ErrorMessage_InvalidRequest: 'Something went wrong (fr)',
+  EmailScreen_ErrorMessage_Unknow: 'Something went wrong (fr)',
+  EmailScreen_ErrorMessage_EmailRequired: 'Email required (fr)',
+  EmailScreen_ErrorMessage_InvalidEmail: 'Invalid email (fr)',
 };
 
 export default fr;

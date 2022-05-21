@@ -1,6 +1,6 @@
 import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
-import { ArrowDownSVG, ArrowRightSVG } from '../../assets/svgs';
+import { ArrowDownSVG, ArrowRightSVG } from '../../assets/svgs/_index';
 
 export const Container = styled(TouchableOpacity).attrs({ activeOpacity: 0.6 })`
   width: 100%;
