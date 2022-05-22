@@ -53,7 +53,6 @@
 
 - Add Icon
 - Add Bootsplash
-- Create additional hooks for some logicals in components
 - Configure Release Build Modes:
   - Android:
     - Proguard
