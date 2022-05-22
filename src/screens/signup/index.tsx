@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import produce from 'immer';
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { View } from 'react-native';
 import { RouteStackParamList } from '..';
 import ButtonContained from '../../components/buttons/buttonContained';
@@ -14,12 +14,12 @@ import { KeyValue } from '../../interfaces/listKeys';
 import {
   ISignUpRequestBody,
   ISignupResponse,
-  SignupErrorResponse,
   SIGNUP_ERROR_MESSAGES,
 } from '../../services/api/interfaces/signup.interfaces';
 import { theme } from '../../theme';
 import CountriesUtils from '../../utils/countries';
 import { getCurrentLanguage, translate } from '../../utils/language';
+import ShowMessageUtils from '../../utils/showMessage';
 import StorageUtils from '../../utils/storage';
 import * as S from './styles';
 
@@ -28,50 +28,50 @@ export type SignupProps = {
 };
 
 const SignupScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'SignupScreen'>> = ({
-  route: { params },
+  route: { params: routeParams },
   navigation,
 }) => {
-  const { email } = params;
   const [selectedCountry, setSelectedCountry] = useState<KeyValue>();
   const [selectedState, setSelectedState] = useState<KeyValue>();
 
   const countries = useMemo(() => CountriesUtils.GetAllCountries(), []);
 
-  const isUsa = selectedCountry?.key === USA_COUNTRY_CODE;
+  const isUsa = useMemo(() => selectedCountry?.key === USA_COUNTRY_CODE, [selectedCountry?.key]);
 
-  const disabledSubmit = isUsa ? !selectedState : !selectedCountry;
+  const disabledSubmit = useMemo(
+    () => (isUsa ? !selectedState : !selectedCountry),
+    [isUsa, selectedCountry, selectedState],
+  );
 
-  const onCountryPress = (selected: KeyValue) => {
+  const onCountryPress = useCallback((selected: KeyValue) => {
     setSelectedCountry(produce(() => selected));
-  };
+  }, []);
 
-  const onStatePress = (selected: KeyValue) => {
+  const onStatePress = useCallback((selected: KeyValue) => {
     setSelectedState(produce(() => selected));
-  };
+  }, []);
 
-  const onSuccess = (response: ISignupResponse) => {
-    StorageUtils.setItem('USER_SESSION_VERIFY', response.session_key);
-    navigation.reset({ index: 0, routes: [{ name: 'EmailScreen' }] });
-  };
+  const onSuccess = useCallback(
+    (response: ISignupResponse) => {
+      StorageUtils.setItem('USER_SESSION_VERIFY', response.session_key);
+      navigation.reset({ index: 0, routes: [{ name: 'EmailScreen' }] });
+    },
+    [navigation],
+  );
 
-  const onError = (error: SignupErrorResponse) => {
-    /**
-     * TODO shows error to the user in screen
-     */
-    console.error(SIGNUP_ERROR_MESSAGES[error]);
-  };
-
-  const signIn = () => {
-    const body: ISignUpRequestBody = {
-      country: selectedCountry.key,
-      email_address: email,
-      language: getCurrentLanguage(),
-    };
-    isUsa && (body['state'] = selectedState.value.toLowerCase());
-    mutate(body);
-  };
+  const onError = (error: Error) => ShowMessageUtils.showMessage(SIGNUP_ERROR_MESSAGES[error.message]);
 
   const { mutate, isLoading } = useSignup({ onSuccess, onError });
+
+  const signIn = useCallback(() => {
+    const body: ISignUpRequestBody = {
+      country: selectedCountry.key,
+      email_address: routeParams.email,
+      language: getCurrentLanguage(),
+    };
+    isUsa && (body.state = selectedState.key);
+    mutate(body);
+  }, [isUsa, mutate, routeParams.email, selectedCountry?.key, selectedState?.key]);
 
   return (
     <Layout headerTitle="SignupScreen_HeaderTitle">

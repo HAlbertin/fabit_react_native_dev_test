@@ -1,11 +1,11 @@
 import { useMutation } from 'react-query';
 import ApiService from '../services/api';
-import { ISignUpRequestBody, ISignupResponse, SignupErrorResponse } from '../services/api/interfaces/signup.interfaces';
+import { ISignUpRequestBody, ISignupResponse } from '../services/api/interfaces/signup.interfaces';
 import ENDPOINTS from '../services/api/_endpoints';
 
 type Props = {
   onSuccess: (response: ISignupResponse) => void;
-  onError: (err: SignupErrorResponse) => void;
+  onError: (err: Error) => void;
 };
 
 const useSignup = (params: Props) => {

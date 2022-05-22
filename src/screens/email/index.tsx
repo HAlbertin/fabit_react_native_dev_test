@@ -1,42 +1,37 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { RouteStackParamList } from '..';
 import { PrimaryButtonText } from '../../components/buttons/styles';
 import DialogContent from '../../components/dialogContent';
 import Typography from '../../components/fonts/typography';
 import useVerifyEmail from '../../hooks/useVerifyEmail';
-import {
-  IMonitorResponse,
-  MonitorErrorResponse,
-  MONITOR_ERROR_MESSAGES,
-} from '../../services/api/interfaces/monitor.interfaces';
+import { IMonitorResponse, MONITOR_ERROR_MESSAGES } from '../../services/api/interfaces/monitor.interfaces';
+import ShowMessageUtils from '../../utils/showMessage';
 import StorageUtils from '../../utils/storage';
 import * as S from './styles';
 
 const EmailScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'EmailScreen'>> = ({ navigation }) => {
-  const goToLogin = () => {
+  const goToLogin = useCallback(() => {
     StorageUtils.deleteItem('USER_SESSION_VERIFY');
     navigation.reset({ index: 0, routes: [{ name: 'LoginScreen' }] });
-  };
+  }, [navigation]);
 
-  const onSuccess = (response: IMonitorResponse) => {
-    if (response.expired) {
-      goToLogin();
-      return;
-    }
+  const onSuccess = useCallback(
+    (response: IMonitorResponse) => {
+      if (response.expired) {
+        goToLogin();
+        return;
+      }
 
-    StorageUtils.setItem('USER_SECRET', response.secret);
-    StorageUtils.deleteItem('USER_SESSION_VERIFY');
+      StorageUtils.setItem('USER_SECRET', response.secret);
+      StorageUtils.deleteItem('USER_SESSION_VERIFY');
 
-    navigation.reset({ index: 0, routes: [{ name: 'SuccessScreen' }] });
-  };
+      navigation.reset({ index: 0, routes: [{ name: 'SuccessScreen' }] });
+    },
+    [goToLogin, navigation],
+  );
 
-  const onError = (error: MonitorErrorResponse) => {
-    /**
-     * TODO: show error to the user
-     */
-    console.error(MONITOR_ERROR_MESSAGES[error]);
-  };
+  const onError = (error: Error) => ShowMessageUtils.showMessage(MONITOR_ERROR_MESSAGES[error.message]);
 
   useVerifyEmail(onSuccess, onError);
 

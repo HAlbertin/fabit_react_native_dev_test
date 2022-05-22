@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import { translate } from '../../utils/language';
 import { TranslationKeys } from '../../utils/language/translations/translations.interface';
 import * as S from './styles';
@@ -18,4 +18,4 @@ const Layout: React.FC<Props> = ({ headerTitle, children }) => {
   return <S.FullSafeAreaView edges={['right', 'left', 'bottom']}>{children}</S.FullSafeAreaView>;
 };
 
-export default Layout;
+export default memo(Layout);

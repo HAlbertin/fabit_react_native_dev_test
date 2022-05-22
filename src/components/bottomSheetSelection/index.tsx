@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { IListData, KeyValue } from '../../interfaces/listKeys';
 import { theme } from '../../theme';
 import { TranslationKeys } from '../../utils/language/translations/translations.interface';
@@ -14,9 +14,12 @@ type Props = {
 };
 
 const BottomSheetSelection: React.FC<Props> = ({ show, onPress, itemList, title }) => {
-  const closeBottomSheet = (selectedItem: KeyValue) => {
-    onPress(selectedItem);
-  };
+  const closeBottomSheet = useCallback(
+    (selectedItem: KeyValue) => {
+      onPress(selectedItem);
+    },
+    [onPress],
+  );
 
   return (
     <Bottomsheet visible={show}>

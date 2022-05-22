@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { View } from 'react-native';
 import { Divider, List } from 'react-native-paper';
 
@@ -10,7 +10,7 @@ type Props = {
 };
 
 const ListItem: React.FC<Props> = ({ onPress, selectedItem, label, icon }) => {
-  const onListItemPress = () => onPress(selectedItem);
+  const onListItemPress = useCallback(() => onPress(selectedItem), [onPress, selectedItem]);
 
   return (
     <View>

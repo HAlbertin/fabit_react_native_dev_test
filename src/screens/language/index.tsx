@@ -14,9 +14,9 @@ import * as S from './styles';
 const LanguageScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'LanguageScreen'>> = ({ navigation }) => {
   const [selectedLang, setSelectedLang] = useState<IListData>(DEFAULT_TRANSLATION);
 
-  const onLangPress = (lang: IListData) => {
+  const onLangPress = useCallback((lang: IListData) => {
     setSelectedLang(produce(() => lang));
-  };
+  }, []);
 
   const defaultLanguage = useMemo(() => LANGUAGES_LIST.find(l => l.key === DEFAULT_LANGUAGE).value, []);
 

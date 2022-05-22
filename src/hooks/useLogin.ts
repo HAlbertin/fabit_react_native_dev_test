@@ -1,11 +1,11 @@
 import { useMutation } from 'react-query';
 import ApiService from '../services/api';
-import { ILoginResponse, LoginErrorResponse } from '../services/api/interfaces/login.interfaces';
+import { ILoginResponse } from '../services/api/interfaces/login.interfaces';
 import ENDPOINTS from '../services/api/_endpoints';
 
 type Props = {
   onSuccess: (response: ILoginResponse) => void;
-  onError: (err: LoginErrorResponse) => void;
+  onError: (err: Error) => void;
 };
 
 const useLogin = (params: Props) => {
@@ -23,7 +23,7 @@ const useLogin = (params: Props) => {
     },
     {
       onSuccess: (data: ILoginResponse) => params.onSuccess({ ...data, email: userEmail }),
-      onError: (err: LoginErrorResponse) => params.onError(err),
+      onError: (err: Error) => params.onError(err),
     },
   );
 };

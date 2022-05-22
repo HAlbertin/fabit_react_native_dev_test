@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import isEqual from 'react-fast-compare';
 import { IListData, KeyValue } from '../../interfaces/listKeys';
 import { TranslationKeys } from '../../utils/language/translations/translations.interface';
@@ -18,11 +18,14 @@ const ListSelect: React.FC<Props> = ({ placeholder, label, listTitle, items, onS
   const [showBottomSheet, setShowBottomSheet] = useState(false);
   const showList = () => setShowBottomSheet(true);
 
-  const selectItem = (item: KeyValue) => {
-    setShowBottomSheet(false);
-    setSelectedItem(item);
-    onSelectedItem(item);
-  };
+  const selectItem = useCallback(
+    (item: KeyValue) => {
+      setShowBottomSheet(false);
+      setSelectedItem(item);
+      onSelectedItem(item);
+    },
+    [onSelectedItem],
+  );
 
   return (
     <>
