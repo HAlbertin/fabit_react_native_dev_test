@@ -1,6 +1,7 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Formik, FormikHelpers } from 'formik';
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback } from 'react';
+import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { RouteStackParamList } from '..';
 import ButtonContained from '../../components/buttons/buttonContained';
@@ -17,19 +18,9 @@ import ValidationUtils from '../../utils/validation';
 import * as S from './styles';
 
 const LoginScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'LoginScreen'>> = ({ navigation }) => {
-  const loginSchemaValidation = useMemo(
-    () =>
-      Yup.object().shape({
-        email: Yup.string()
-          .email(translate('LoginScreen_EmailInvalid'))
-          .required(translate('LoginScreen_EmailRequired')),
-      }),
-    [],
-  );
-
-  const initialValues = {
-    email: '',
-  };
+  const loginSchemaValidation = Yup.object().shape({
+    email: Yup.string().email(translate('LoginScreen_EmailInvalid')).required(translate('LoginScreen_EmailRequired')),
+  });
 
   const onError = (error: Error) => ShowMessageUtils.showMessage(LOGIN_ERROR_MESSAGES[error.message]);
 
@@ -46,43 +37,43 @@ const LoginScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'LoginSc
     [navigation],
   );
 
-  const { mutate } = useLogin({ onError, onSuccess });
+  const { mutate, isLoading } = useLogin({ onError, onSuccess });
 
-  const onSubmit = useCallback(
-    ({ email }, { setSubmitting }: FormikHelpers<{ email: string }>) => {
-      mutate(email, { onSettled: (): void => setSubmitting(false) });
-    },
-    [mutate],
-  );
+  const onSubmit = ({ email }) => {
+    mutate(email);
+  };
+
+  const {
+    handleSubmit,
+    register,
+    setValue,
+    formState: { errors, isSubmitting, isValid },
+  } = useForm({ resolver: yupResolver(loginSchemaValidation), reValidateMode: 'onChange' });
 
   return (
     <Layout headerTitle="LoginScreen_HeaderTitle">
       <KeyboardAvoid>
-        <Formik validationSchema={loginSchemaValidation} initialValues={initialValues} onSubmit={onSubmit}>
-          {({ handleSubmit, handleChange, values, isValid, errors, dirty, isSubmitting }) => (
-            <>
-              <S.FormContainer>
-                <InputText
-                  placeholder={translate('LoginScreen_EmailPlaceholder')}
-                  onChangeText={handleChange('email')}
-                  value={values.email}
-                  textContentType="emailAddress"
-                  keyboardType="email-address"
-                  errorText={errors?.email?.toString()}
-                  label="LoginScreen_Email"
-                  testID="email-input"
-                />
+        <S.FormContainer>
+          <InputText
+            placeholder={translate('LoginScreen_EmailPlaceholder')}
+            textContentType="emailAddress"
+            keyboardType="email-address"
+            errorText={errors?.email?.message}
+            label="LoginScreen_Email"
+            testID="email-input"
+            onChangeText={text => setValue('email', text, { shouldValidate: true })}
+            {...register('email')}
+          />
 
-                <ButtonContained
-                  disabled={ValidationUtils.formDisabled({ dirty, isValid, isSubmitting })}
-                  onPress={handleSubmit}
-                  text="LanguageScreen_ContinueButton"
-                />
-              </S.FormContainer>
-              {isSubmitting && <Loading />}
-            </>
-          )}
-        </Formik>
+          <ButtonContained
+            disabled={ValidationUtils.formDisabled({ isValid, isSubmitting })}
+            onPress={() => {
+              handleSubmit(onSubmit)();
+            }}
+            text="LanguageScreen_ContinueButton"
+          />
+        </S.FormContainer>
+        {isLoading && <Loading />}
       </KeyboardAvoid>
     </Layout>
   );

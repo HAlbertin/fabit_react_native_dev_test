@@ -14,7 +14,7 @@
 - Routes
   - [React Navigation](https://reactnavigation.org/)
 - Forms
-  - [Formik](https://formik.org/)
+  - [React Hook Form](https://react-hook-form.com/)
   - [Yup](https://github.com/jquense/yup)
 - Storage
   - [MMKV](https://github.com/Tencent/MMKV)

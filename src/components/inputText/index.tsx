@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, memo } from 'react';
 import { TextInputProps } from 'react-native';
 import { theme } from '../../theme';
 import { TranslationKeys } from '../../utils/language/translations/translations.interface';
@@ -11,13 +11,14 @@ interface Props {
   label?: TranslationKeys;
 }
 
-const InputText: React.FC<Props & TextInputProps> = ({ errorText, leftIcon, label, ...props }) => {
+const InputText: React.FC<Props & TextInputProps> = forwardRef(({ errorText, leftIcon, label, ...props }, ref) => {
   const inputTextTheme = { ...theme, colors: { ...theme.colors, primary: 'transparent' } };
   return (
     <S.InputContainer>
       {label && <Typography testID={`${props.testID}-label`} needsTranslate text={label} color={theme.colors.text} />}
 
       <S.InputText
+        ref={ref}
         autoCapitalize={'none'}
         autoCorrect={false}
         selectionColor={theme.colors.primary}
@@ -31,6 +32,6 @@ const InputText: React.FC<Props & TextInputProps> = ({ errorText, leftIcon, labe
       <Typography testID={`${props.testID}-error`} text={errorText ?? ''} color={theme.colors.error} />
     </S.InputContainer>
   );
-};
+});
 
-export default InputText;
+export default memo(InputText);

@@ -1,11 +1,9 @@
 type IFormDisabledParams = {
-  dirty: boolean;
   isValid: boolean;
   isSubmitting: boolean;
 };
 
-const formDisabled = ({ dirty, isValid, isSubmitting }: IFormDisabledParams): boolean =>
-  !dirty || !isValid || isSubmitting;
+const formDisabled = ({ isValid, isSubmitting }: IFormDisabledParams): boolean => !isValid || isSubmitting;
 
 const ValidationUtils = {
   formDisabled,

@@ -212,7 +212,9 @@ exports[`<LoginScreen /> should match snapshot 1`] = `
                         keyboardType="email-address"
                         maxFontSizeMultiplier={1.5}
                         multiline={false}
+                        name="email"
                         onBlur={[Function]}
+                        onChange={[Function]}
                         onChangeText={[Function]}
                         onFocus={[Function]}
                         placeholder="Your email address"
@@ -252,7 +254,6 @@ exports[`<LoginScreen /> should match snapshot 1`] = `
                         testID="email-input"
                         textContentType="emailAddress"
                         underlineColorAndroid="transparent"
-                        value=""
                       />
                     </View>
                   </View>
