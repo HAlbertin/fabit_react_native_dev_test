@@ -1,5 +1,5 @@
 import { useMutation } from 'react-query';
-import { post } from '../services/api';
+import ApiService from '../services/api';
 import { ILoginResponse, LoginErrorResponse } from '../services/api/interfaces/login.interfaces';
 import ENDPOINTS from '../services/api/_endpoints';
 
@@ -14,7 +14,8 @@ const useLogin = (params: Props) => {
     async (email: string) => {
       userEmail = email;
       try {
-        const response = await post(ENDPOINTS.ACCESS.LOGIN, { email_address: email });
+        const body = { email_address: email };
+        const response = await ApiService.post(ENDPOINTS.ACCESS.LOGIN, body);
         return response;
       } catch (err) {
         throw new Error(err);

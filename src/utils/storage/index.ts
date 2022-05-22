@@ -11,7 +11,7 @@ const setItem = (keyName: storageKeys, value: string | number | boolean) => {
 
 const getItem = (keyName: storageKeys) => storage.getString(StorageConstants[keyName]);
 
-const deleteItem = (keyName: storageKeys) => storage.delete(keyName);
+const deleteItem = (keyName: storageKeys) => storage.delete(StorageConstants[keyName]);
 
 const StorageUtils = {
   setItem,

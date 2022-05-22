@@ -15,7 +15,7 @@ import * as S from './styles';
 
 const EmailScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'EmailScreen'>> = ({ navigation }) => {
   const goToLogin = () => {
-    StorageUtils.deleteItem('USER_SESSION');
+    StorageUtils.deleteItem('USER_SESSION_VERIFY');
     navigation.reset({ index: 0, routes: [{ name: 'LoginScreen' }] });
   };
 
@@ -24,6 +24,9 @@ const EmailScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'EmailSc
       goToLogin();
       return;
     }
+
+    StorageUtils.setItem('USER_SECRET', response.secret);
+    StorageUtils.deleteItem('USER_SESSION_VERIFY');
 
     navigation.reset({ index: 0, routes: [{ name: 'SuccessScreen' }] });
   };

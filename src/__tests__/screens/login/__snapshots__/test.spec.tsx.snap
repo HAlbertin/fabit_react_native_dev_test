@@ -98,7 +98,6 @@ exports[`<LoginScreen /> should match snapshot 1`] = `
                 Array [
                   Array [
                     Object {
-                      "backgroundColor": "#F7F8F7",
                       "flexBasis": 0,
                       "flexGrow": 1,
                       "flexShrink": 1,

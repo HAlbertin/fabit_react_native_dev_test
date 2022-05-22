@@ -1,9 +1,13 @@
 const USER_LANGUAGE = 'user_language';
-const USER_SESSION = 'user_session_key';
+// first login/signup
+const USER_SESSION_VERIFY = 'user_session_key';
+// after login/verified email
+const USER_SECRET = 'user_secret';
 
 const StorageConstants = {
   USER_LANGUAGE,
-  USER_SESSION,
+  USER_SESSION_VERIFY,
+  USER_SECRET,
 };
 
 export default StorageConstants;

@@ -41,11 +41,11 @@ const LoginScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'LoginSc
 
   const onSuccess = (response: ILoginResponse) => {
     if (response.new_account === true) {
-      navigation.reset({ index: 0, routes: [{ name: 'SignupScreen', params: { email: response.email } }] });
+      navigation.navigate('SignupScreen', { email: response.email });
       return;
     }
 
-    StorageUtils.setItem('USER_SESSION', response.session_key);
+    StorageUtils.setItem('USER_SESSION_VERIFY', response.session_key);
     navigation.reset({ index: 0, routes: [{ name: 'EmailScreen' }] });
   };
 

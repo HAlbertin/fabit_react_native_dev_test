@@ -1,10 +1,6 @@
 import axios, { AxiosError, AxiosRequestHeaders } from 'axios';
-import { Platform } from 'react-native';
 import FormatUtils from '../../utils/format';
-
-const IOS = '3';
-const ANDROID = '2';
-const getPlatform = () => (Platform.OS === 'ios' ? IOS : ANDROID);
+import PlatformUtils from '../../utils/platform';
 
 const apiVersion = 'v1';
 const apiUrl = 'https://dev-api.aao-tech.com/';
@@ -13,23 +9,30 @@ const instance = axios.create({
   baseURL: `${apiUrl}${apiVersion}`,
 });
 
-export async function post<T>(url: string, data?: unknown, headers?: AxiosRequestHeaders): Promise<T> {
+const post = async <T>(url: string, data?: unknown, headers?: AxiosRequestHeaders): Promise<T> => {
   try {
-    data['platform'] = getPlatform();
-    const response = await instance.post<T>(url, data, { headers });
+    data['platform'] = PlatformUtils.getPlatform();
+    const response = await instance.post(url, data, { headers });
     return response.data;
   } catch (error) {
     const err = error as AxiosError;
     throw err.response?.data;
   }
-}
+};
 
-export async function get<T>(url: string, params?: string[], headers?: AxiosRequestHeaders): Promise<T> {
+const get = async <T>(url: string, params?: string[], headers?: AxiosRequestHeaders): Promise<T> => {
   try {
-    const response = await instance.get<T>(FormatUtils.formatUrl(url, params), { headers });
+    const response = await instance.get(FormatUtils.formatUrl(url, params), { headers });
     return response.data;
   } catch (error) {
     const err = error as AxiosError;
     throw err.response?.data;
   }
-}
+};
+
+const ApiService = {
+  post,
+  get,
+};
+
+export default ApiService;

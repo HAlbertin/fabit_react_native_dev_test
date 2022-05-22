@@ -50,7 +50,7 @@ const SignupScreen: React.FC<NativeStackScreenProps<RouteStackParamList, 'Signup
   };
 
   const onSuccess = (response: ISignupResponse) => {
-    StorageUtils.setItem('USER_SESSION', response.session_key);
+    StorageUtils.setItem('USER_SESSION_VERIFY', response.session_key);
     navigation.reset({ index: 0, routes: [{ name: 'EmailScreen' }] });
   };
 
