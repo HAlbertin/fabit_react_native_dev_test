@@ -66,6 +66,11 @@ const es: ITranslations = {
   EmailScreen_ErrorMessage_Unknow: 'Something went wrong (es)',
   EmailScreen_ErrorMessage_EmailRequired: 'Email required (es)',
   EmailScreen_ErrorMessage_InvalidEmail: 'Invalid email (es)',
+
+  /**
+   * SearchInputComponent
+   */
+  SearchInputComponent_Placeholder: 'Search (es)',
 };
 
 export default es;

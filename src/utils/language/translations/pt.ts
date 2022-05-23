@@ -66,6 +66,11 @@ const pt: ITranslations = {
   EmailScreen_ErrorMessage_Unknow: 'Algo deu errado',
   EmailScreen_ErrorMessage_EmailRequired: 'E-mail é obrigatório',
   EmailScreen_ErrorMessage_InvalidEmail: 'E-mail inválido',
+
+  /**
+   * SearchInputComponent
+   */
+  SearchInputComponent_Placeholder: 'Procurar',
 };
 
 export default pt;

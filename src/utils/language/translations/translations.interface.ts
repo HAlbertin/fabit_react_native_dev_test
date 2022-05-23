@@ -8,11 +8,13 @@ export interface ITranslations {
   Language_Es: string;
   Language_It: string;
   Language_Fr: string;
+
   /**
    * LanguageScreen
    */
   LanguageScreen_SelectLanguage: string;
   LanguageScreen_ContinueButton: string;
+
   /**
    * LoginScreen
    */
@@ -29,6 +31,7 @@ export interface ITranslations {
   LoginScreen_ErrorMessage_AccountSuspended: string;
   LoginScreen_ErrorMessage_AccountClosed: string;
   LoginScreen_ErrorMessage_AccountLocked: string;
+
   /**
    * SignupScreen
    */
@@ -61,6 +64,11 @@ export interface ITranslations {
   EmailScreen_ErrorMessage_Unknow: string;
   EmailScreen_ErrorMessage_EmailRequired: string;
   EmailScreen_ErrorMessage_InvalidEmail: string;
+
+  /**
+   * SearchInputComponent
+   */
+  SearchInputComponent_Placeholder: string;
 }
 
 export type TranslationKeys = keyof ITranslations;

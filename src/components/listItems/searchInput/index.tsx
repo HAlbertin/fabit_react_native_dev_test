@@ -3,6 +3,7 @@ import React, { memo, useCallback, useEffect, useMemo } from 'react';
 import isEqual from 'react-fast-compare';
 import { TextInput } from 'react-native-paper';
 import { IListData } from '../../../interfaces/listKeys';
+import { translate } from '../../../utils/language';
 import InputText from '../../inputText';
 
 type Props = {
@@ -30,7 +31,7 @@ const SearchInput: React.FC<Props> = ({ setFilteredList, originalList }) => {
   return (
     <InputText
       leftIcon={<TextInput.Icon name="magnify" />}
-      placeholder={'Search'}
+      placeholder={translate('SearchInputComponent_Placeholder')}
       onChangeText={debouncedChangeHandler}
       testID="search-input"
     />
