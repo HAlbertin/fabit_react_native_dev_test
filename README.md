@@ -1,6 +1,6 @@
-# FastBitcoins Dev Test
+# Dev Test
 
-[FastBitcoins](https://fastbitcoins.com/) dev test in [React Native](https://reactnative.dev/) with [TypeScript](https://www.typescriptlang.org/) and [Expo Bare Workflow](https://docs.expo.dev/bare/exploring-bare-workflow/).
+Dev test in [React Native](https://reactnative.dev/) 0.68 with [TypeScript](https://www.typescriptlang.org/) and [Expo Bare Workflow](https://docs.expo.dev/bare/exploring-bare-workflow/).
 
 ## Architecture Stack
 
